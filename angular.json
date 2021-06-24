@@ -24,7 +24,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/assets/css/custom-theme.scss",
+              "src/styles.css",
+              "src/assets/css/simple-grid.min.css"
             ],
             "scripts": []
           },
@@ -87,6 +89,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/css/custom-theme.scss",
               "src/styles.css"
             ],
             "scripts": []

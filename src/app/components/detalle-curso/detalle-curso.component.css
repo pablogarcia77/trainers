@@ -1,0 +1,9 @@
+.detalles{
+    border: 1px solid #2d3748;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.white{
+    color: white !important;
+}

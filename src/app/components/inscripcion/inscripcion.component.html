@@ -1,0 +1,138 @@
+<h1 class="center">{{curso.nombre}}</h1>
+<mat-horizontal-stepper linear #stepper>
+    <mat-step label="Elija Comisión">
+      <h3>Elija un horario</h3>
+      <form [formGroup]="comisionFormGroup">
+        <ng-template matStepLabel>Horarios</ng-template>
+        <mat-radio-group aria-label="Select an option" formControlName="comision" required>
+            <mat-card *ngFor="let comision of comisiones" class="card">
+              <mat-radio-button [value]="comision">{{comision.horario}}</mat-radio-button>
+            </mat-card>
+        </mat-radio-group>
+        <div class="row">
+          <div class="col-6">
+          </div>
+          <div class="col-6">
+            <button mat-raised-button color="primary" matStepperNext class="w-100">Siguiente</button>
+          </div>
+        </div>
+        <!-- <p>{{comisionFormGroup.get('comision').value}}</p> -->
+      </form>
+    </mat-step>
+    <mat-step label="Complete sus Datos">
+      <ng-template matStepLabel>Datos Personales</ng-template>
+      <h3>Complete sus datos Personales</h3>
+      <form [formGroup]="personaFormGroup">
+        <div class="row">
+          <div class="col-6">
+            <mat-form-field>
+              <mat-label>Apellidos</mat-label>
+              <input matInput formControlName="apellidos" placeholder="Perez" required>
+            </mat-form-field>
+          </div>
+          <div class="col-6">
+            <mat-form-field>
+              <mat-label>Nombres</mat-label>
+              <input matInput formControlName="nombres" placeholder="Juan" required>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <mat-form-field>
+              <mat-label>Documento</mat-label>
+              <input matInput formControlName="dni" placeholder="Juan" required>
+            </mat-form-field>
+          </div>
+          <div class="col-6">
+            <mat-form-field>
+              <mat-label>Fecha de Nacimiento</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="fecha_nacimiento">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <mat-form-field>
+              <mat-label>Celular</mat-label>
+              <input matInput formControlName="celular" placeholder="+549YYYYXXXXXX" required>
+            </mat-form-field>
+          </div>
+          <div class="col-6">
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="mail" placeholder="Juan@gmail.com" required>
+            </mat-form-field>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+        <h3>Complete los datos de su Domicilio</h3>
+        <div class="row">
+          <div class="col-6">
+            <mat-form-field>
+              <mat-label>Calle</mat-label>
+              <input matInput formControlName="direccion_calle" placeholder="Calle Falsa" required>
+            </mat-form-field>
+          </div>
+          <div class="col-6">
+            <mat-form-field>
+              <mat-label>Numero</mat-label>
+              <input matInput formControlName="direccion_numero" placeholder="123" required>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <mat-form-field>
+              <mat-label>Barrio</mat-label>
+              <input matInput formControlName="direccion_barrio" placeholder="Belgrano" required>
+            </mat-form-field>
+          </div>
+          <div class="col-6">
+            <mat-form-field>
+              <mat-label>Localidad</mat-label>
+              <input matInput formControlName="direccion_localidad" placeholder="San Pedro" required>
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+      <div class="row">
+        <div class="col-6">
+          <button mat-raised-button color="primary" matStepperPrevious class="w-100">Atras</button>
+        </div>
+        <div class="col-6">
+          <button mat-raised-button color="primary" matStepperNext class="w-100">Siguiente</button>
+        </div>
+      </div>
+    </mat-step>
+    <mat-step label="Pago">
+      <h3>Confirme</h3>
+      <div class="row">
+        <h4>Usted se está por inscribir a:</h4>
+      </div>
+      <div class="row">
+        <h5>{{curso?.nombre}}</h5>
+      </div>
+      <div class="row">
+        <h4>En el horario:</h4>
+      </div>
+      <div class="row">
+        <h5>{{comisionFormGroup.get('comision')?.value.horario}}</h5>
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <mat-icon color="accent">shopping_bag</mat-icon>
+        </div>
+        <div class="col-10">
+          <h2 class="mt-10">Precio de Inscripción: ${{curso?.precio_inscripcion}},00</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <button mat-raised-button color="primary" class="w-100" (click)="inscribir()">Pagar</button>
+        </div>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>

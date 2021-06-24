@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { min-height: 100%; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #edf2f7;
+    color: #666;
+    display:flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+.primario{
+    background-color: #2d3748;
+    color: white !important;
+}
+.borders{
+    border: 1px solid #acacac;
+    border-radius: 5px;
+}
+.blanco{
+    color: white;
+}
+.responsive-img {
+    width: 100%;
+    height: auto;
+}
+footer{
+    background-color: #2d3748;
+    flex-shrink: 0;
+    margin: auto auto 0 auto;
+}
+.router{
+    flex: 1;
+}
+.left{
+    float:left;
+}
+.right{
+    float: right;
+}
+.w-100{
+    width: 100% !important;
+}

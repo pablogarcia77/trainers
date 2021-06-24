@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <h1>{{curso?.nombre}}</h1>
+    </div>
+    <div class="row">
+        <div class="col-7">
+            <img [src]="curso?.url_imagen_presentacion" [alt]="curso?.nombre" class="responsive-img">
+        </div>
+        <div class="col-4">
+            <div class="row  detalles">
+                <div class="col-12">
+                    <h3>Entrenador: {{curso?.instructor.nombre}} {{curso?.instructor.apellido}}</h3>
+                    <h3>Inscripcion: ${{curso?.precio_inscripcion}}</h3>
+                    <h3>Cuota: ${{curso?.precio_cuota}}</h3>
+                    <h3>Horarios:</h3>
+                    <div *ngFor="let comision of comisiones">
+                        <span>{{comision?.nombre}} {{comision?.horario}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row" class="white">
+                <button mat-raised-button color="primary" (click)="inscribir()">Inscribirme</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <h2>Descripcion</h2>
+        <p>{{curso?.descripcion}}</p>
+    </div>
+    <div class="row">
+        <h2>Requisitos</h2>
+        <p>{{curso?.requisitos}}</p>
+    </div>
+    <div class="row">
+        <h2>Publico destinado</h2>
+        <p>{{curso?.publico_destinado}}</p>
+    </div>
+</div>

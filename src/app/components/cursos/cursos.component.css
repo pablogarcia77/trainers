@@ -1,0 +1,9 @@
+.derecha{
+    text-align: right;
+}
+.gris{
+    color: #797979;
+}
+mat-card:hover{
+    cursor: pointer;
+}
