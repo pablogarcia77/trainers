@@ -45,7 +45,7 @@ export class DetalleCursoComponent implements OnInit {
       {
         data: {
           comisiones: this.comisiones,
-          curso: this.curso
+          curso: this.curso,
         }
       }
       

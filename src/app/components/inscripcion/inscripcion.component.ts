@@ -53,25 +53,43 @@ export class InscripcionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.comisiones)
-    console.log(this.curso)
+    // console.log(this.comisiones)
+    // console.log(this.curso)
   }
 
   inscribir(){
     let idComision = this.comisionFormGroup.get('comision').value.idComision;
-    let alumno = this.comisionFormGroup.get('comision').value
-    console.log(this.comisionFormGroup.get('comision').value)
-    console.log(this.personaFormGroup.value)
+    let alumno = this.personaFormGroup.value
+    // console.log(this.comisionFormGroup.get('comision').value)
+    // console.log(this.personaFormGroup.value)
     this.alumnosService.postAlumno(alumno).subscribe(
-      response => {
-        let inscripcion = {
-          id_comisiones: idComision,
-          id_alumnos: response.id
+      resp => {
+        // console.log(resp)
+        
+        let compra = {
+          access_token: this.data.curso.instructor.mp_access_token,
+          description: 'Inscripcion al curso: ' + this.data.curso.nombre,
+          price: this.data.curso.precio_inscripcion,
+          quantity: 1
         }
-        console.log('JSON: ',inscripcion)
-        this.inscripcionesService.postInscripcion(inscripcion).subscribe(
-          res => {
-            console.log(res)
+        this.inscripcionesService.postMercadoPago(compra).subscribe(
+          response => {
+            // console.log(response.body)
+            window.open(response.body.sandbox_init_point,'_blank')
+
+            let inscripcion = {
+              id_comisiones: idComision,
+              id_alumnos: resp.id,
+              id_pago: response.body.id
+            }
+
+            this.inscripcionesService.postInscripcion(inscripcion).subscribe(
+              res => {
+                console.log(res)
+                this.dialog.closeAll()
+              }
+            )
+
           }
         )
       }

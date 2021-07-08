@@ -18,10 +18,10 @@ export class CursosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.cursoService.getCursos().subscribe(
+    this.cursoService.getDetalleCursos().subscribe(
       response => {
-        this.cursos = response.rows;
-        console.log(response)
+        this.cursos = response.cursos;
+        // console.log(response)
       }
     )
   }

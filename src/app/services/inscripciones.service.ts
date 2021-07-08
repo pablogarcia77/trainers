@@ -25,7 +25,8 @@ export class InscripcionesService {
   // Variables de URL API REST
   private apiGetInscripciones = this.urlBase + '/inscripciones/';
   private apiPostInscripciones = this.urlBase + '/inscripciones/';
-  private apiPutInscripciones = this.urlBase + '/inscripciones/';
+  private apiPostMercadoPago = this.urlBase + '/mercadopago/';
+  private apiPutInscripciones = this.urlBase + '/inscripcion/pago/';
   private apiDeleteInscripciones = this.urlBase + '/inscripciones/';
 
   constructor(
@@ -39,5 +40,15 @@ export class InscripcionesService {
   postInscripcion(inscripcion: any): Observable<any>{
     const newSession = Object.assign({},inscripcion);
     return this.http.post<any[]>(this.apiPostInscripciones,newSession,cudOptions);
+  }
+
+  postMercadoPago(curso: any):Observable<any>{
+    const newSession = Object.assign({},curso);
+    return this.http.post<any[]>(this.apiPostMercadoPago,newSession,cudOptions);
+  }
+
+  putPago(pago: any):Observable<any>{
+    const newSession = Object.assign({},pago);
+    return this.http.put<any[]>(this.apiPutInscripciones + pago.preference_id, newSession, cudOptions);
   }
 }

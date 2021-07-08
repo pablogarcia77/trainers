@@ -1,0 +1,24 @@
+.v-align{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.circulo{
+    display: flex;
+    background-color: #5175b3;
+    border-radius: 50%;
+    border: solid 5px black;
+    height: 192px;
+    width: 192px;
+}
+.check{
+    font-size: 9rem;
+    position: relative;
+    top:10%;
+    left: 10%;
+    color: black;
+}
+.mt-10{
+    margin-top: 10px;
+}

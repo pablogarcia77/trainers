@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PagoAprobadoComponent } from './components/pago-aprobado/pago-aprobado.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DetalleCursoComponent,
     MenuComponent,
     SliderComponent,
-    InscripcionComponent
+    InscripcionComponent,
+    PagoAprobadoComponent
   ],
   imports: [
     BrowserModule,

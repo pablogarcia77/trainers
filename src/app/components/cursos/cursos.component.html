@@ -1,21 +1,42 @@
 <app-slider></app-slider>
 <!-- <div class="bootstrap-wrapper"> -->
 	<div class="container">
-        <div class="row">
-            <div class="col-3" *ngFor="let curso of cursos" [routerLink]="['/curso',curso.id_cursos]">
-                <mat-card>
-                    <img mat-card-image src="{{curso.url_imagen_presentacion}}" alt="{{curso.nombre}}">
-                    <mat-card-content>
-                        <h2>{{curso.nombre}}</h2>
-                        <h3>{{curso.descripcion}}</h3>
-                        <h4 class="gris">Publico destinado: {{curso.publico_destinado}}</h4>
-                    </mat-card-content>
-                    <mat-card-actions>
-                        <div class="derecha">
-                            <h2>${{curso.precio_inscripcion}}</h2>
+        <div class="row mt-50">
+            <div *ngFor="let curso of cursos" [routerLink]="['/curso',curso.idCurso]"  >
+                <div  *ngIf="curso.estado_publicacion == 1" class="col-4" >
+                    <mat-card>
+                        <div class="image-container">
+                            <img src="{{curso.url_imagen_presentacion}}" alt="{{curso?.nombre}}" class="image">
                         </div>
-                    </mat-card-actions>
-                </mat-card>
+                        <mat-card-content>
+                            <div class="titulo">
+                                <h3 class="elipsis bold">{{curso?.nombre.toUpperCase() }}</h3>
+                            </div>
+                            <div class="descripcion">
+                                <h3 class="elipsis">{{curso.descripcion}}</h3>
+                            </div>
+                            <div class="destinado">
+                                <h4 class="gris elipsis">Publico destinado: {{curso.publico_destinado}}</h4>
+                            </div>
+                        </mat-card-content>
+                        <mat-card-actions class="row">
+                            <div class="col-3">
+                                <div class="foto-instructor">
+                                    <img [src]="curso?.instructor.foto" [alt]="curso?.instructor.apellido" class="foto">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <small>{{curso?.instructor.nombre}} {{curso?.instructor.apellido}}</small>
+                            </div>
+                            <div class="col-6">
+                                <div class="derecha">
+                                    <h2>${{curso.precio_inscripcion}}</h2>
+                                </div>
+                            </div>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+                
             </div>
         </div>
     

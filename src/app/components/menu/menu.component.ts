@@ -12,4 +12,8 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  login(){
+    window.open('http://localhost/fullTrainer','_self')
+  }
+
 }

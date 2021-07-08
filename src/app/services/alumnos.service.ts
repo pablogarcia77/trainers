@@ -37,6 +37,7 @@ export class AlumnosService {
   }
 
   postAlumno(alumno: any): Observable<any>{
+    console.log(alumno)
     const newSession = Object.assign({},alumno);
     return this.http.post<any[]>(this.apiPostAlumnos,newSession,cudOptions);
   }

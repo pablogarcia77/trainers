@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-50">
     <div class="row">
         <h1>{{curso?.nombre}}</h1>
     </div>
@@ -18,8 +18,11 @@
                     </div>
                 </div>
             </div>
-            <div class="row" class="white">
+            <div class="row" class="white" *ngIf="curso?.habilita_inscripcion == 1">
                 <button mat-raised-button color="primary" (click)="inscribir()">Inscribirme</button>
+            </div>
+            <div class="row" *ngIf="curso?.habilita_inscripcion == 0">
+                <h3>Este curso no acepta inscripciones por el momento</h3>
             </div>
         </div>
 
